@@ -25,11 +25,11 @@ class BrandForm
                     ->required()
                     ->disabled()
                     ->dehydrated()
-                    ->unique(Brand::class , 'slug' , ignoreRecord:true)
-                    ->columnSpanFull(),
+                    ->unique(Brand::class , 'slug' , ignoreRecord:true),
                 FileUpload::make('image')
                     ->image()
-                    ->directory('brands'),
+                    ->directory('brands')
+                    ->columnSpanFull(),
                 Toggle::make('is_active')
                     ->required(),
             ]);

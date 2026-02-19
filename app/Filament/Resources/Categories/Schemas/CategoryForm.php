@@ -25,11 +25,11 @@ class CategoryForm
                     ->required()
                     ->disabled()
                     ->dehydrated()
-                    ->unique(Category::class , 'slug' , ignoreRecord:true)
-                    ->columnSpanFull(),
+                    ->unique(Category::class , 'slug' , ignoreRecord:true),
                 FileUpload::make('image')
                     ->image()
-                    ->directory('categories'),
+                    ->directory('categories')
+                    ->columnSpanFull(),
                 Toggle::make('is_active')
                     ->required(),
             ]);
