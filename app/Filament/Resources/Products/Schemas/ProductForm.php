@@ -19,6 +19,7 @@ class ProductForm
     {
         return $schema
             ->components([
+            Section::make('Product Information')->schema([
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255)
@@ -36,7 +37,11 @@ class ProductForm
                 TextInput::make('price')
                     ->required()
                     ->numeric()
-                    ->prefix('NRP'),
+                    ->prefix('NRP')
+                    ->minValue(0)
+                    ->step(0.01),
+            ])->columnSpanFull(),
+            
                 Section::make('Associations')->schema([
                     Select::make('category_id')
                         ->relationship('category', 'name')

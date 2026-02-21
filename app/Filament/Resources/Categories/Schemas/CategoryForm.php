@@ -31,7 +31,8 @@ class CategoryForm
                     ->directory('categories')
                     ->columnSpanFull(),
                 Toggle::make('is_active')
-                    ->required(),
+                    ->required()
+                    ->default(true),
             ]);
     }
 }

@@ -21,9 +21,9 @@ class CategoriesTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
+                ImageColumn::make('image'),
                 TextColumn::make('slug')
                     ->searchable(),
-                ImageColumn::make('image'),
                 IconColumn::make('is_active')
                     ->boolean(),
                 TextColumn::make('created_at')
