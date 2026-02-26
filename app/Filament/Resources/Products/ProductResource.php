@@ -20,7 +20,9 @@ class ProductResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-squares-2x2';
 
-    protected static ?string $recordTitleAttribute = 'product';
+    protected static ?string $recordTitleAttribute = 'name';
+
+    protected static ?int $navigationSort = 4;
 
     public static function form(Schema $schema): Schema
     {
