@@ -2,7 +2,10 @@
 
 namespace App\Livewire\Auth;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
+
+#[Title('Reset Password - ShopHeX')]
 
 class ResetPasswordPage extends Component
 {

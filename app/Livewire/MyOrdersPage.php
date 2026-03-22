@@ -2,7 +2,10 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
+
+#[Title('Orders Page - ShopHeX')]
 
 class MyOrdersPage extends Component
 {
