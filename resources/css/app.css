@@ -1,5 +1,24 @@
 @import 'tailwindcss';
 
+@layer base {
+  html, body {
+    margin: 0;                /* kills default browser margin that causes white space around page */
+    padding: 0;
+    height: 100%;             /* helps with full-height layouts */
+  }
+
+  body {
+    @apply bg-white dark:bg-gray-900;   /* or whatever your main bg is */
+    min-height: 100vh;        /* ensures body is at least full viewport height */
+    display: flex;
+    flex-direction: column;   /* enables flex push for footer */
+  }
+
+  main {                      /* wrap your {{ $slot }} in <main> in app.blade.php */
+    @apply flex-grow;         /* this grows to push footer to bottom → no white gap below */
+  }
+}
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
@@ -8,4 +27,5 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+        
 }
