@@ -2,9 +2,12 @@
 
 namespace App\Livewire;
 
+use App\Helpers\CartManagement;
+use App\Livewire\Partials\Navbar;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use Jantinnerezo\LivewireAlert\Facades\LivewireAlert;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -33,6 +36,23 @@ class ProductPage extends Component
 
     #[Url]
     public $sort = 'latest';
+
+    // Add product to Cart Method
+
+    public function addToCart($product_id)
+    {
+        $total_count = CartManagement::addItemToCart($product_id);
+
+        $this->dispatch('update_cart_count' , total_count : $total_count)->to(Navbar::class);
+
+        LivewireAlert::title('Added to cart')
+            ->text('The product has been added to your cart successfully.')
+            ->position('bottom-end')
+            ->timer(3000)
+            ->toast()
+            ->success()
+            ->show();
+    }
 
     public function render()
     {

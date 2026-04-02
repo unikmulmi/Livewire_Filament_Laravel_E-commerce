@@ -27,8 +27,7 @@ class CartManagement{
    if($existing_item !== null)
       {
          $cart_items[$existing_item]['quantity']++;
-         $cart_items[$existing_item]['total_amount'] = $cart_items[$existing_item]['quantity'] *
-         $cart_items[$existing_item]['unit_amount'];
+         $cart_items[$existing_item]['total_amount'] = $cart_items[$existing_item]['quantity'] * $cart_items[$existing_item]['unit_amount'];
       }
    else
       {
@@ -102,8 +101,7 @@ class CartManagement{
    foreach ($cart_items as $key => $item){
       if ($item['product_id'] == $product_id){
          $cart_items[$key]['quantity']++;
-         $cart_items[$key]['total_amount'] = $cart_items[$key]['quantity'] *
-                                             $cart_items[$key]['unit_amount'];
+         $cart_items[$key]['total_amount'] = $cart_items[$key]['quantity'] * $cart_items[$key]['unit_amount'];
       }
    }
    self::addCartItemsToCookie($cart_items);
@@ -120,8 +118,7 @@ class CartManagement{
       if ($item['product_id'] == $product_id){
          if($cart_items[$key]['quantity'] > 1){
             $cart_items[$key]['quantity']--;
-            $cart_items[$key]['total_amount'] = $cart_items[$key]['quantity'] *
-                                                $cart_items[$key]['unit_amount'];
+            $cart_items[$key]['total_amount'] = $cart_items[$key]['quantity'] * $cart_items[$key]['unit_amount'];
          }
          
    }
@@ -138,3 +135,4 @@ class CartManagement{
  }
 
 }
+

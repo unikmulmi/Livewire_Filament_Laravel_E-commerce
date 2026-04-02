@@ -11,6 +11,7 @@
         @livewireStyles
     </head>
     <body class="bg-slate-100 dark:bg-slate-900">
+        
 
             @livewire('partials.navbar')
 
@@ -21,5 +22,7 @@
             @livewire('partials.footer')
 
         @livewireScripts
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 </html>
