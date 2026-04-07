@@ -28,9 +28,9 @@
                 <td class="py-4">{{ Number::currency($item['unit_amount'] , 'Nrs')}}</td>
                 <td class="py-4">
                   <div class="flex items-center">
-                    <button wire:click="decreaseQty({{ $item['product_id'] }})" class="border rounded-md py-2 px-4 mr-2">-</button>
+                    <button wire:click="decreaseQty({{ $item['product_id'] }})" class="border rounded-md py-2 px-4 mr-2 hover:bg-gray-100 hover:border-gray-400 transition-colors">-</button>
                     <span class="text-center w-8">{{ $item['quantity'] }}</span>
-                    <button wire:click='increaseQty({{ $item['product_id'] }})' class="border rounded-md py-2 px-4 ml-2">+</button>
+                    <button wire:click='increaseQty({{ $item['product_id'] }})' class="border rounded-md py-2 px-4 mr-2 hover:bg-gray-100 hover:border-gray-400 transition-colors">+</button>
                   </div>
                 </td>
                 <td class="py-4">
@@ -75,7 +75,7 @@
           </div>
           <a href="/checkout">
             @if ($cart_items)
-                <button class="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full cursor-pointer">Checkout</button>  
+                <a href="/checkout" class="bg-blue-500 block text-center text-white py-2 px-4 rounded-lg mt-4 w-full cursor-pointer">Checkout</a>  
             @endif
           </a>
         </div>
