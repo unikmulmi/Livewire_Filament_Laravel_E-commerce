@@ -161,12 +161,11 @@ class CartManagement{
          if($cart_items[$key]['quantity'] > 1){
             $cart_items[$key]['quantity']--;
             $cart_items[$key]['total_amount'] = $cart_items[$key]['quantity'] * $cart_items[$key]['unit_amount'];
-         }
-         
+         }    
+      }
    }
    self::addCartItemsToCookie($cart_items);
    return $cart_items;
- }
  }
 
  // calculate grand total
