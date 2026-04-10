@@ -22,9 +22,8 @@ class LoginPage extends Component
        ]); 
        
         if (! Auth::attempt(['email' => $this->email , 'password' => $this->password])) {
-            throw ValidationException::withMessages([
-                'email' => 'Sorry, those credentials do not match.',
-            ]);
+            session()->flash('error' , 'The email or password you entered is incorrect. Please try again.');
+            return;
         }
 
         return redirect()->intended();
