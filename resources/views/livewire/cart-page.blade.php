@@ -4,14 +4,14 @@
     <div class="flex flex-col md:flex-row gap-4">
       <div class="md:w-3/4">
         <div class="bg-white overflow-x-auto rounded-lg shadow-md p-6 mb-4">
-          <table class="w-full">
+          <table class="w-full min-w-max">
             <thead>
               <tr>
-                <th class="text-left font-semibold">Product</th>
-                <th class="text-left font-semibold">Price</th>
-                <th class="text-left font-semibold">Quantity</th>
-                <th class="text-left font-semibold">Total</th>
-                <th class="text-left font-semibold">Remove</th>
+                <th class="text-left font-semibold px-2">Product</th>
+                <th class="text-left font-semibold px-2">Price</th>
+                <th class="text-left font-semibold px-2">Quantity</th>
+                <th class="text-left font-semibold px-2">Total</th>
+                <th class="text-left font-semibold px-2">Remove</th>
               </tr>
             </thead>
             <tbody>
@@ -19,21 +19,21 @@
               @forelse ($cart_items as $item)
                   
               <tr wire:key="{{ $item['product_id'] }}">
-                <td class="py-4">
+                <td class="py-4 px-2">
                   <div class="flex items-center">
                     <img class="h-16 w-16 mr-4" src="{{ url('storage' , $item['image'] )}}" alt="{{ $item['name'] }}">
                     <span class="font-semibold">{{ $item['name'] }}</span>
                   </div>
                 </td>
-                <td class="py-4">{{ Number::currency($item['unit_amount'] , 'Nrs')}}</td>
-                <td class="py-4">
+                <td class="py-4 px-2">{{ Number::currency($item['unit_amount'] , 'Nrs')}}</td>
+                <td class="py-4 px-2">
                   <div class="flex items-center">
                     <button wire:click="decreaseQty({{ $item['product_id'] }})" class="border rounded-md py-2 px-4 mr-2 hover:bg-gray-100 hover:border-gray-400 transition-colors">-</button>
                     <span class="text-center w-8">{{ $item['quantity'] }}</span>
                     <button wire:click='increaseQty({{ $item['product_id'] }})' class="border rounded-md py-2 px-4 mr-2 hover:bg-gray-100 hover:border-gray-400 transition-colors">+</button>
                   </div>
                 </td>
-                <td class="py-4">
+                <td class="py-4 px-2">
                   {{ Number::currency($item['total_amount'] , 'Nrs')}}
                 </td>
                 <td>
@@ -44,7 +44,7 @@
                 </tr>
               @empty
                   <tr>
-                    <td colspan="5" class="text-4xl text-center py-4 font-semibold text-slate-500">You haven't added any item to Your Cart Yet!</td>
+                    <td colspan="5" class="text-4xl text-center py-8 font-semibold text-slate-500">You haven't added any item to Your Cart Yet!</td>
                   </tr>
               @endforelse
               

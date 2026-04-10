@@ -112,7 +112,7 @@
 						Subtotal
 					</span>
 					<span>
-						45,000.00
+						{{ Number::currency($grand_total , 'NRS') }}
 					</span>
 				</div>
 				<div class="flex justify-between mb-2 font-bold">
@@ -120,7 +120,7 @@
 						Taxes
 					</span>
 					<span>
-						0.00
+						{{ Number::currency(0 , 'NRS') }}
 					</span>
 				</div>
 				<div class="flex justify-between mb-2 font-bold">
@@ -128,7 +128,7 @@
 						Shipping Cost
 					</span>
 					<span>
-						0.00
+						Free
 					</span>
 				</div>
 				<hr class="bg-slate-400 my-4 h-1 rounded">
@@ -137,7 +137,7 @@
 						Grand Total
 					</span>
 					<span>
-						45,000.00
+						{{ Number::currency($grand_total , 'NRS') }}
 					</span>
 				</div>
 				</hr>
@@ -149,65 +149,31 @@
 				<div class="text-xl font-bold underline text-gray-700 dark:text-white mb-2">
 					BASKET SUMMARY
 				</div>
+					
 				<ul class="divide-y divide-gray-200 dark:divide-gray-700" role="list">
-					<li class="py-3 sm:py-4">
+					@foreach ($cart_items as $cart_item)
+					<li class="py-3 sm:py-4" wire:key="{{ $cart_item['product_id'] }}">
 						<div class="flex items-center">
 							<div class="flex-shrink-0">
-								<img alt="Neil image" class="w-12 h-12 rounded-full" src="https://iplanet.one/cdn/shop/files/iPhone_15_Pro_Max_Blue_Titanium_PDP_Image_Position-1__en-IN_1445x.jpg?v=1695435917">
+								<img alt="{{ $cart_item['name'] }}" class="w-12 h-12 rounded-full" src="{{ url('storage' , $cart_item['image']) }}">
 								</img>
 							</div>
 							<div class="flex-1 min-w-0 ms-4">
 								<p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-									Apple iPhone 15 Pro Max
+									{{ $cart_item['name'] }}
 								</p>
 								<p class="text-sm text-gray-500 truncate dark:text-gray-400">
-									Quantity: 1
+									Quantity: {{ $cart_item['quantity'] }}
 								</p>
 							</div>
 							<div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-								$320
+								{{ Number::currency($cart_item['total_amount'] , 'NRS') }}
 							</div>
 						</div>
 					</li>
-					<li class="py-3 sm:py-4">
-						<div class="flex items-center">
-							<div class="flex-shrink-0">
-								<img alt="Neil image" class="w-12 h-12 rounded-full" src="https://iplanet.one/cdn/shop/files/iPhone_15_Pro_Max_Blue_Titanium_PDP_Image_Position-1__en-IN_1445x.jpg?v=1695435917">
-								</img>
-							</div>
-							<div class="flex-1 min-w-0 ms-4">
-								<p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-									Apple iPhone 15 Pro Max
-								</p>
-								<p class="text-sm text-gray-500 truncate dark:text-gray-400">
-									Quantity: 1
-								</p>
-							</div>
-							<div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-								$320
-							</div>
-						</div>
-					</li>
-					<li class="py-3 sm:py-4">
-						<div class="flex items-center">
-							<div class="flex-shrink-0">
-								<img alt="Neil image" class="w-12 h-12 rounded-full" src="https://iplanet.one/cdn/shop/files/iPhone_15_Pro_Max_Blue_Titanium_PDP_Image_Position-1__en-IN_1445x.jpg?v=1695435917">
-								</img>
-							</div>
-							<div class="flex-1 min-w-0 ms-4">
-								<p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-									Apple iPhone 15 Pro Max
-								</p>
-								<p class="text-sm text-gray-500 truncate dark:text-gray-400">
-									Quantity: 1
-								</p>
-							</div>
-							<div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-								$320
-							</div>
-						</div>
-					</li>
+
 				</ul>
+				@endforeach
 			</div>
 		</div>
 	</div>
