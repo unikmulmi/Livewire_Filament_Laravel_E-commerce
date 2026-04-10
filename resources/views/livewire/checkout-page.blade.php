@@ -2,6 +2,7 @@
 	<h1 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
 		Checkout
 	</h1>
+<form wire:submit.prevent="placeOrder">
 	<div class="grid grid-cols-12 gap-4">
 		<div class="md:col-span-12 lg:col-span-8 col-span-12">
 			<!-- Card -->
@@ -16,52 +17,66 @@
 							<label class="block text-gray-700 dark:text-white mb-1" for="first_name">
 								First Name
 							</label>
-							<input class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none" id="first_name" type="text">
-							</input>
+							<input wire:model="first_name" class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none @error('first_name') border-red-500 @enderror " id="first_name" type="text" />
+							@error('first_name')
+								<p class="text-xs text-red-600 mt-2">{{ $message }}</p>
+							@enderror
 						</div>
 						<div>
 							<label class="block text-gray-700 dark:text-white mb-1" for="last_name">
 								Last Name
 							</label>
-							<input class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none" id="last_name" type="text">
-							</input>
+							<input wire:model="last_name" class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none @error('last_name') border-red-500 @enderror" id="last_name" type="text" />
+							@error('last_name')
+								<p class="text-xs text-red-600 mt-2">{{ $message }}</p>
+							@enderror
 						</div>
 					</div>
 					<div class="mt-4">
 						<label class="block text-gray-700 dark:text-white mb-1" for="phone">
 							Phone
 						</label>
-						<input class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none" id="phone" type="text">
-						</input>
+						<input wire:model="phone" class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none @error('phone') border-red-500 @enderror" id="phone" type="text" />
+							@error('phone')
+								<p class="text-xs text-red-600 mt-2">{{ $message }}</p>
+							@enderror
 					</div>
 					<div class="mt-4">
 						<label class="block text-gray-700 dark:text-white mb-1" for="address">
 							Address
 						</label>
-						<input class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none" id="address" type="text">
-						</input>
+						<input wire:model="street_address" class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none @error('street_address') border-red-500 @enderror" id="address" type="text" />
+							@error('street_address')
+								<p class="text-xs text-red-600 mt-2">{{ $message }}</p>
+							@enderror
 					</div>
 					<div class="mt-4">
 						<label class="block text-gray-700 dark:text-white mb-1" for="city">
 							City
 						</label>
-						<input class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none" id="city" type="text">
-						</input>
+						<input wire:model="city" class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none @error('city') border-red-500 @enderror" id="city" type="text" />
+							@error('city')
+								<p class="text-xs text-red-600 mt-2">{{ $message }}</p>
+							@enderror
 					</div>
 					<div class="grid grid-cols-2 gap-4 mt-4">
 						<div>
 							<label class="block text-gray-700 dark:text-white mb-1" for="state">
 								State
 							</label>
-							<input class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none" id="state" type="text">
-							</input>
+							<input wire:model="state" class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none @error('state') border-red-500 @enderror" id="state" type="text" />
+							@error('state')
+								<p class="text-xs text-red-600 mt-2">{{ $message }}</p>
+							@enderror
 						</div>
 						<div>
 							<label class="block text-gray-700 dark:text-white mb-1" for="zip">
 								ZIP Code
 							</label>
-							<input class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none" id="zip" type="text">
-							</input>
+							<input wire:model="zip_code" class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none @error('zip_code') border-red-500 @enderror" id="zip" type="text" />
+							@error('zip_code')
+								<p class="text-xs text-red-600 mt-2">{{ $message }}</p>
+							@enderror
 						</div>
 					</div>
 				</div>
@@ -70,7 +85,7 @@
 				</div>
 				<ul class="grid w-full gap-6 md:grid-cols-2">
 					<li>
-						<input class="hidden peer" id="hosting-small" name="hosting" required="" type="radio" value="hosting-small" />
+						<input wire:model="payment_method" class="hidden peer" id="hosting-small" name="hosting" type="radio" value="cod" />
 						<label class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700" for="hosting-small">
 							<div class="block">
 								<div class="w-full text-lg font-semibold">
@@ -84,7 +99,7 @@
 						</label>
 					</li>
 					<li>
-						<input class="hidden peer" id="hosting-big" name="hosting" type="radio" value="hosting-big">
+						<input wire:model="payment_method" class="hidden peer" id="hosting-big" name="hosting" type="radio" value="paypal" />
 						<label class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700" for="hosting-big">
 							<div class="block">
 								<div class="w-full text-lg font-semibold">
@@ -96,9 +111,11 @@
 								</path>
 							</svg>
 						</label>
-						</input>
 					</li>
 				</ul>
+				@error('payment_method')
+					<p class="text-xs text-red-600 mt-2">{{ $message }}</p>
+				@enderror
 			</div>
 			<!-- End Card -->
 		</div>
@@ -128,10 +145,11 @@
 						Shipping Cost
 					</span>
 					<span>
-						Free
+						Free Delivery
 					</span>
 				</div>
-				<hr class="bg-slate-400 my-4 h-1 rounded">
+				<hr class="bg-slate-400 my-4 h-1 rounded" />
+
 				<div class="flex justify-between mb-2 font-bold">
 					<span>
 						Grand Total
@@ -140,9 +158,9 @@
 						{{ Number::currency($grand_total , 'NRS') }}
 					</span>
 				</div>
-				</hr>
+				
 			</div>
-			<button class="bg-green-500 mt-4 w-full p-3 rounded-lg text-lg text-white hover:bg-green-600">
+			<button type="submit" class="bg-green-500 mt-4 w-full p-3 rounded-lg text-lg text-white hover:bg-green-600 cursor-pointer">
 				Place Order
 			</button>
 			<div class="bg-white mt-4 rounded-xl shadow p-4 sm:p-7 dark:bg-slate-900">
@@ -171,10 +189,11 @@
 							</div>
 						</div>
 					</li>
-
+					@endforeach
 				</ul>
-				@endforeach
+
 			</div>
 		</div>
 	</div>
+</form>
 </div>
