@@ -48,20 +48,20 @@ class CheckoutPage extends Component
 
         $cart_items = CartManagement::getCartItemsFromCookie();
 
-        $line_items = [];
+        // $line_items = [];
 
-        foreach ($cart_items as $item) {
-            $line_items[] = [
-                'price_data' => [
-                    'currency' => 'nrs',
-                    'unit_amount' => $item['unit_amount'],
-                    'product_data' => [
-                        'name' => $item['name'],
-                    ],
-                ],
-                'quantity' => $item['quantity'],
-            ];
-        }
+        // foreach ($cart_items as $item) {
+        //     $line_items[] = [
+        //         'price_data' => [
+        //             'currency' => 'nrs',
+        //             'unit_amount' => $item['unit_amount'],
+        //             'product_data' => [
+        //                 'name' => $item['name'],
+        //             ],
+        //         ],
+        //         'quantity' => $item['quantity'],
+        //     ];
+        // }
 
         $order = new Order();
         $order->user_id = Auth::user()->id;
