@@ -108,7 +108,7 @@
       </div>
       <!-- End Col -->
 
-      <div class="relative ms-4 mt-4">
+      <div class="relative ms-4 mt-20">
         <img class="w-full rounded-md" src="https://static.vecteezy.com/system/resources/previews/009/315/289/non_2x/3d-credit-card-money-financial-security-for-online-shopping-online-payment-credit-card-with-payment-protection-concept-3d-render-for-business-finance-shopping-with-mobile-security-concept-free-png.png" alt="Image Description">
         <div class="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 w-full h-full rounded-md mt-4 -mb-4 me-4 -ms-4 lg:mt-6 lg:-mb-6 lg:me-6 lg:-ms-6 dark:from-slate-800 dark:via-slate-900/0 dark:to-slate-900/0"></div>
       </div>
