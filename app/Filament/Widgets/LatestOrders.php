@@ -65,7 +65,8 @@ class LatestOrders extends TableWidget
                 //     ->numeric()
                 //     ->sortable(),
                 TextColumn::make('shipping_method')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
