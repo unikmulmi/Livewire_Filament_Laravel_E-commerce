@@ -1,59 +1,280 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ShopHeX
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A full-stack e-commerce web application built with **Laravel 12, Livewire, Tailwind CSS, and Filament**.
 
-## About Laravel
+ShopHeX provides a complete online shopping experience with product browsing, filtering, cart management, checkout, Stripe payments, Cash on Delivery, and order tracking. It also includes a Filament-powered admin panel for managing products, categories, brands, customers, and orders.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Customer Features
 
-## Learning Laravel
+* User registration, login, and password reset
+* Browse products by category and brand
+* Filter products by price, featured, and sale status
+* Sort products by latest and price
+* Product detail pages with quantity selection
+* Cookie-based shopping cart
+* Add, remove, and update cart items
+* Checkout with shipping information
+* Stripe card payments
+* Cash on Delivery
+* Order confirmation emails
+* View order history and order details
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Admin Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* Product, category, and brand management
+* Multiple product image uploads
+* Product stock, sale, featured, and active status controls
+* Customer management
+* Order management and status tracking
+* Payment status management
+* Shipping address management
+* Order statistics
+* Latest orders dashboard
 
-## Laravel Sponsors
+## Tech Stack
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+| Category                    | Technologies                    |
+| --------------------------- | ------------------------------- |
+| **Backend**                 | PHP 8.2+, Laravel 12            |
+| **Frontend**                | Blade, Livewire, Tailwind CSS 4 |
+| **Admin Panel**             | Filament 5                      |
+| **Database**                | MySQL                           |
+| **Authentication**          | Laravel Authentication          |
+| **Payments**                | Stripe, Cash on Delivery        |
+| **Email**                   | Laravel Mail                    |
+| **JavaScript / Build Tool** | Vite                            |
+| **UI Notifications**        | Livewire Alert                  |
+| **Package Management**      | Composer, npm                   |
 
-### Premium Partners
+## Screenshots
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Customer Interface
 
-## Contributing
+![Homepage](screenshots/homepage.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![Products](screenshots/productspage.png)
 
-## Code of Conduct
+![Product Details](screenshots/productdetails.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+![Shopping Cart](screenshots/cartpage.png)
 
-## Security Vulnerabilities
+![Checkout](screenshots/checkoutpage.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+![Order Details](screenshots/orderdetails.png)
+
+![Success Page](screenshots/successpage.png)
+
+### Admin Panel
+
+![Admin Dashboard](screenshots/dashboard.png)
+
+![Product Management](screenshots/productsfilament.png)
+
+## Installation
+
+Follow these steps to run the project locally.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/shophex.git
+cd shophex
+```
+
+### 2. Install PHP dependencies
+
+```bash
+composer install
+```
+
+### 3. Install frontend dependencies
+
+```bash
+npm install
+```
+
+### 4. Create the environment file
+
+**Windows Command Prompt:**
+
+```cmd
+copy .env.example .env
+```
+
+**Windows PowerShell:**
+
+```powershell
+Copy-Item .env.example .env
+```
+
+**macOS / Linux:**
+
+```bash
+cp .env.example .env
+```
+
+### 5. Generate the application key
+
+```bash
+php artisan key:generate
+```
+
+### 6. Configure the database
+
+Update the database settings in your `.env` file:
+
+```env
+APP_NAME="ShopHeX"
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://127.0.0.1:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_username
+DB_PASSWORD=your_database_password
+```
+
+Create the MySQL database before running the migrations.
+
+### 7. Run database migrations and seeders
+
+```bash
+php artisan migrate
+php artisan db:seed
+```
+
+The seeders populate the database with the required initial data.
+
+### 8. Create the storage link
+
+```bash
+php artisan storage:link
+```
+
+This allows uploaded product images and other public files to be accessed through the application.
+
+### 9. Configure Stripe Payments
+
+Add your Stripe credentials to the `.env` file:
+
+```env
+STRIPE_KEY=your_stripe_publishable_key
+STRIPE_SECRET=your_stripe_secret_key
+```
+
+You can use your Stripe test-mode credentials for local development.
+
+### 10. Configure Mail
+
+ShopHeX uses Laravel Mail for order confirmation emails.
+
+Add your mail provider credentials to the `.env` file:
+
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=your_mail_host
+MAIL_PORT=587
+MAIL_USERNAME=your_mail_username
+MAIL_PASSWORD=your_mail_password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="hello@shophex.test"
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+For local testing without a real mail provider, you can use the log mailer:
+
+```env
+MAIL_MAILER=log
+```
+
+Emails will then be written to:
+
+```text
+storage/logs/laravel.log
+```
+
+Alternatively, you can use a service such as Mailtrap for testing.
+
+### 11. Start the development server
+
+Open **two terminals**.
+
+**Terminal 1:**
+
+```bash
+php artisan serve
+```
+
+**Terminal 2:**
+
+```bash
+npm run dev
+```
+
+### 12. Visit the application
+
+Open your browser and navigate to:
+
+```text
+http://127.0.0.1:8000
+```
+
+## Admin Panel
+
+The Filament admin panel is available at:
+
+```text
+http://127.0.0.1:8000/admin
+```
+
+### Default Admin Credentials
+
+If the database seeders are used, the default admin credentials are:
+
+```text
+Email: admin@shophex.test
+Password: password
+```
+
+**Change these credentials before deploying the application to a production environment.**
+
+## Project Structure
+
+```text
+app/
+├── Filament/
+├── Livewire/
+├── Mail/
+├── Models/
+└── ...
+
+database/
+├── migrations/
+├── factories/
+└── seeders/
+
+resources/
+├── views/
+└── ...
+
+routes/
+└── web.php
+```
+
+## Future Improvements
+
+* Product reviews and ratings
+* Wishlist functionality
+* Discount and coupon system
+* Advanced analytics
+* Additional payment gateways
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is built as an internship deliverable and portfolio showcase. Not for commercial redistribution without explicit permis
