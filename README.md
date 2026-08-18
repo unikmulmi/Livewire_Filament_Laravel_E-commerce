@@ -277,4 +277,4 @@ routes/
 
 ## License
 
-This project is built as an internship deliverable and portfolio showcase. Not for commercial redistribution without explicit permis
+This project is built as an internship deliverable and portfolio showcase. Not for commercial redistribution without explicit permission.
