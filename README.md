@@ -33,21 +33,47 @@ ShopHeX provides a complete online shopping experience with product browsing, fi
 * Shipping address management
 * Order statistics
 * Latest orders dashboard
-
 ## Tech Stack
 
-| Category                    | Technologies                    |
-| --------------------------- | ------------------------------- |
-| **Backend**                 | PHP 8.2+, Laravel 12            |
-| **Frontend**                | Blade, Livewire, Tailwind CSS 4 |
-| **Admin Panel**             | Filament 5                      |
-| **Database**                | MySQL                           |
-| **Authentication**          | Laravel Authentication          |
-| **Payments**                | Stripe, Cash on Delivery        |
-| **Email**                   | Laravel Mail                    |
-| **JavaScript / Build Tool** | Vite                            |
-| **UI Notifications**        | Livewire Alert                  |
-| **Package Management**      | Composer, npm                   |
+### Backend
+
+- PHP 8.2+
+- Laravel 12
+- MySQL
+
+### Frontend
+
+- Blade
+- Livewire
+- Tailwind CSS 4
+- Vite
+
+### Admin Panel
+
+- Filament 5
+
+### Authentication
+
+- Laravel Authentication
+
+### Payments
+
+- Stripe
+- Cash on Delivery
+
+### Email
+
+- Laravel Mail
+
+### UI Notifications
+
+- Livewire Alert
+
+### Development Tools
+
+- Composer
+- NPM
+- Git / GitHub
 
 ## Screenshots
 
